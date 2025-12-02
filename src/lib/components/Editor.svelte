@@ -51,7 +51,13 @@
         <div class="flex w-fit items-center gap-2">
           <ExclamationCircleIcon class="size-6 text-destructive" aria-hidden="true" />
           <div class="flex flex-col">
-            <p>Syntax error</p>
+            <p>
+              Syntax error - <span
+                style="cursor: pointer; text-decoration: underline"
+                on:click={() => navigator.clipboard.writeText($stateStore.error?.toString())}>
+                Copy
+              </span>
+            </p>
             {#if env.isEnabledMermaidChartLinks && $stateStore.editorMode === 'code'}
               <p class="text-xs text-white/60" data-testid={TID.aiHelpText}>
                 Create a free account to repair with AI
