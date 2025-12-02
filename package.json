@@ -7,7 +7,7 @@
     "dev": "vite dev",
     "dev:force": "MERMAID_LOCAL=true pnpm dev --force",
     "dev:test": "pnpm dev",
-    "build": "vite build",
+    "build": "NODE_OPTIONS=\"--max-old-space-size=4096\" vite build",
     "preview": "vite preview",
     "lint": "prettier --check --cache . && eslint .",
     "lint:fix": "prettier --write --cache . && eslint --fix .",
