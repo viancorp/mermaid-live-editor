@@ -1,5 +1,6 @@
 <script lang="ts">
   import McWrapper from '$/components/McWrapper.svelte';
+  // noinspection ES6UnusedImports
   import * as Popover from '$/components/ui/popover';
   import { Switch } from '$/components/ui/switch';
   import { urlsStore } from '$/util/state';
@@ -13,9 +14,6 @@
   import ContrastIcon from '~icons/material-symbols/contrast';
   import PluginIcon from '~icons/material-symbols/electrical-services-rounded';
   import MenuIcon from '~icons/material-symbols/menu-rounded';
-  import CommunityIcon from '~icons/material-symbols/person-play-outline-rounded';
-  import PlaygroundIcon from '~icons/material-symbols/shape-line-outline';
-  import MermaidChartIcon from './MermaidChartIcon.svelte';
 
   interface MenuItem {
     label: string;
@@ -32,13 +30,6 @@
     { label: 'New', icon: AddIcon, href: $urlsStore.new, renderer: menuItem },
     { label: 'Duplicate', icon: DuplicateIcon, href: window.location.href, renderer: menuItem },
     {
-      href: $urlsStore.mermaidChart({ medium: 'main_menu' }).playground,
-      icon: PlaygroundIcon,
-      isSectionEnd: true,
-      label: 'Edit in Playground',
-      renderer: mcMenuItem
-    },
-    {
       label: 'Mermaid.js',
       icon: MermaidTailIcon,
       href: 'https://mermaid.js.org/',
@@ -48,12 +39,6 @@
       label: 'Documentation',
       icon: BookIcon,
       href: 'https://mermaid.js.org/intro/',
-      renderer: menuItem
-    },
-    {
-      label: 'Community',
-      icon: CommunityIcon,
-      href: 'https://discord.gg/sKeNQX4Wtj',
       renderer: menuItem
     },
     {
@@ -70,15 +55,6 @@
       isSectionEnd: true,
       label: 'Dark Mode',
       renderer: darkModeMenuItem
-    },
-    {
-      checkDiagramType: false,
-      class: 'text-accent border-b-0',
-      href: $urlsStore.mermaidChart({ medium: 'main_menu' }).home,
-      icon: MermaidChartIcon,
-      label: 'Mermaid',
-      renderer: mcMenuItem,
-      sharesData: false
     }
   ]);
 </script>
